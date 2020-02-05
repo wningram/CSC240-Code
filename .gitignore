@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FlashCardMaker/.vs/FlashCardMaker/v16
+/.vs
+/FlashCardMaker/FlashCardMaker/bin/Debug
+/FlashCardMaker/FlashCardMaker/obj/Debug
