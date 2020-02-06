@@ -24,18 +24,19 @@
         /// </summary>
         private void InitializeComponent() {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnAnswer = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnNewCard = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.btnSaveAs = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAnswer = new System.Windows.Forms.Button();
+            this.flashCard1 = new FlashCardMaker.FlashCard();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.flashCard1 = new FlashCardMaker.FlashCard();
-            this.btnNewCard = new System.Windows.Forms.Button();
+            this.lblCardCounter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,33 +63,47 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblCardCounter);
             this.splitContainer1.Panel2.Controls.Add(this.flashCard1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 174;
             this.splitContainer1.TabIndex = 0;
             // 
-            // btnAnswer
+            // btnNewCard
             // 
-            this.btnAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnNewCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnswer.Location = new System.Drawing.Point(3, 12);
-            this.btnAnswer.Name = "btnAnswer";
-            this.btnAnswer.Size = new System.Drawing.Size(168, 23);
-            this.btnAnswer.TabIndex = 0;
-            this.btnAnswer.Text = "Toggle Answer";
-            this.btnAnswer.UseVisualStyleBackColor = true;
-            this.btnAnswer.Click += new System.EventHandler(this.btnAnswer_Click);
+            this.btnNewCard.Location = new System.Drawing.Point(3, 41);
+            this.btnNewCard.Name = "btnNewCard";
+            this.btnNewCard.Size = new System.Drawing.Size(168, 23);
+            this.btnNewCard.TabIndex = 5;
+            this.btnNewCard.Text = "New Card";
+            this.btnNewCard.UseVisualStyleBackColor = true;
+            this.btnNewCard.Click += new System.EventHandler(this.btnNewCard_Click);
             // 
-            // btnEdit
+            // btnPrev
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(3, 70);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(168, 23);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit Card";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnPrev.Location = new System.Drawing.Point(3, 128);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(168, 23);
+            this.btnPrev.TabIndex = 4;
+            this.btnPrev.Text = "Previous Card";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.Location = new System.Drawing.Point(4, 99);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(168, 23);
+            this.btnNext.TabIndex = 3;
+            this.btnNext.Text = "Next Card";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // groupBox1
             // 
@@ -104,17 +119,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File";
             // 
-            // btnLoad
+            // btnNew
             // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(7, 22);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(135, 23);
-            this.btnLoad.TabIndex = 0;
-            this.btnLoad.Text = "Load File";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnNew.Location = new System.Drawing.Point(7, 81);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(135, 23);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "New Project";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSaveAs
             // 
@@ -127,6 +142,49 @@
             this.btnSaveAs.Text = "Save As";
             this.btnSaveAs.UseVisualStyleBackColor = true;
             this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad.Location = new System.Drawing.Point(7, 22);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(135, 23);
+            this.btnLoad.TabIndex = 0;
+            this.btnLoad.Text = "Load File";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Location = new System.Drawing.Point(3, 70);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(168, 23);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit Card";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnAnswer
+            // 
+            this.btnAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnswer.Location = new System.Drawing.Point(3, 12);
+            this.btnAnswer.Name = "btnAnswer";
+            this.btnAnswer.Size = new System.Drawing.Size(168, 23);
+            this.btnAnswer.TabIndex = 0;
+            this.btnAnswer.Text = "Toggle Answer";
+            this.btnAnswer.UseVisualStyleBackColor = true;
+            this.btnAnswer.Click += new System.EventHandler(this.btnAnswer_Click);
+            // 
+            // flashCard1
+            // 
+            this.flashCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flashCard1.Location = new System.Drawing.Point(0, 41);
+            this.flashCard1.Name = "flashCard1";
+            this.flashCard1.Size = new System.Drawing.Size(622, 409);
+            this.flashCard1.TabIndex = 0;
             // 
             // openFileDialog1
             // 
@@ -142,61 +200,16 @@
             this.saveFileDialog1.Filter = "XML FIles|*.xml";
             this.saveFileDialog1.Title = "Save Flash Cards File";
             // 
-            // btnNext
+            // lblCardCounter
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(4, 99);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(168, 23);
-            this.btnNext.TabIndex = 3;
-            this.btnNext.Text = "Next Card";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrev.Location = new System.Drawing.Point(3, 128);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(168, 23);
-            this.btnPrev.TabIndex = 4;
-            this.btnPrev.Text = "Previous Card";
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNew.Location = new System.Drawing.Point(7, 81);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(135, 23);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "New Project";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // flashCard1
-            // 
-            this.flashCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flashCard1.Location = new System.Drawing.Point(0, 0);
-            this.flashCard1.Name = "flashCard1";
-            this.flashCard1.Size = new System.Drawing.Size(622, 450);
-            this.flashCard1.TabIndex = 0;
-            // 
-            // btnNewCard
-            // 
-            this.btnNewCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewCard.Location = new System.Drawing.Point(3, 41);
-            this.btnNewCard.Name = "btnNewCard";
-            this.btnNewCard.Size = new System.Drawing.Size(168, 23);
-            this.btnNewCard.TabIndex = 5;
-            this.btnNewCard.Text = "New Card";
-            this.btnNewCard.UseVisualStyleBackColor = true;
-            this.btnNewCard.Click += new System.EventHandler(this.btnNewCard_Click);
+            this.lblCardCounter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblCardCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardCounter.Location = new System.Drawing.Point(0, 0);
+            this.lblCardCounter.Name = "lblCardCounter";
+            this.lblCardCounter.Size = new System.Drawing.Size(622, 35);
+            this.lblCardCounter.TabIndex = 1;
+            this.lblCardCounter.Text = "1 of 1";
+            this.lblCardCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -231,6 +244,7 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnNewCard;
+        private System.Windows.Forms.Label lblCardCounter;
     }
 }
 

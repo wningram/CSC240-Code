@@ -25,6 +25,8 @@ namespace FlashCardMaker {
             if (cards != null)
                 flashCard1.Data = cards[currentIndx];
             btnSaveAs.Enabled = cards != null;
+            // Set Card counter value
+            lblCardCounter.Text = $"{currentIndx + 1} of {cards.Length}";
         }
 
         public void ResetProject() {
