@@ -33,7 +33,7 @@ namespace FlashCardMaker {
         }
 
         /// <summary>
-        /// Clears the <see cref="cards"/> array and refreshes the UI by calling<see cref="RefreshUI"/>.
+        /// Clears the <see cref="cards"/> array and refreshes the UI by calling <see cref="RefreshUI"/>.
         /// </summary>
         public void ResetProject() {
             currentIndx = 0;
