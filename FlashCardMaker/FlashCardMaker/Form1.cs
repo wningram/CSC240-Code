@@ -21,6 +21,9 @@ namespace FlashCardMaker {
             this.currentIndx = 0;
         }
 
+        /// <summary>
+        /// Refreshes the UI with the contents of the <see cref="cards"/> array.
+        /// </summary>
         public void RefreshUI() {
             if (cards != null)
                 flashCard1.Data = cards[currentIndx];
@@ -29,6 +32,9 @@ namespace FlashCardMaker {
             lblCardCounter.Text = $"{currentIndx + 1} of {cards.Length}";
         }
 
+        /// <summary>
+        /// Clears the <see cref="cards"/> array and refreshes the UI by calling<see cref="RefreshUI"/>.
+        /// </summary>
         public void ResetProject() {
             currentIndx = 0;
             cards = new CardData[] {
