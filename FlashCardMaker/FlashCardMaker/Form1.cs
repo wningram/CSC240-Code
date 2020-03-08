@@ -21,12 +21,20 @@ namespace FlashCardMaker {
             this.currentIndx = 0;
         }
 
+        /// <summary>
+        /// Refreshes the UI with the contents of the <see cref="cards"/> array.
+        /// </summary>
         public void RefreshUI() {
             if (cards != null)
                 flashCard1.Data = cards[currentIndx];
             btnSaveAs.Enabled = cards != null;
+            // Set Card counter value
+            lblCardCounter.Text = $"{currentIndx + 1} of {cards.Length}";
         }
 
+        /// <summary>
+        /// Clears the <see cref="cards"/> array and refreshes the UI by calling <see cref="RefreshUI"/>.
+        /// </summary>
         public void ResetProject() {
             currentIndx = 0;
             cards = new CardData[] {
@@ -83,7 +91,10 @@ namespace FlashCardMaker {
                 CardsFileWriter writer = new CardsFileWriter(cFile);
                 writer.WriteData();
             } catch (ArgumentException) {
-                MessageBox.Show("Deck data is corrupted or invalid, could not save.", "Invalid or Corrupted Project Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Deck data is corrupted or invalid, could not save.", 
+                    "Invalid or Corrupted Project Data", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -96,8 +107,18 @@ namespace FlashCardMaker {
         }
 
         private void btnNewCard_Click(object sender, EventArgs e) {
-            // TODO: Need to implement new card functionality
-            throw new NotImplementedException();
+            EditCardDialog newCardDialog = new EditCardDialog();
+            if (newCardDialog.ShowDialog() == DialogResult.OK) {
+                CardData result = newCardDialog.Card;
+                if (!string.IsNullOrEmpty(result.Question)) {
+                    cards = cards.Append(result).ToArray();
+                } else {
+                    MessageBox.Show("Cannot add an empty card.", "Card is Empty",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                RefreshUI();
+            }
         }
     }
 }
