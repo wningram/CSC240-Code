@@ -82,12 +82,32 @@ namespace FlashCardMaker {
         }
 
         private void btnSaveAs_Click(object sender, EventArgs e) {
+            string deckName = null;
             CardsFile cFile = null;
+            // Get Deck Name
+            InputDialog inputDlg = new InputDialog("Deck Name", "Enter name for this Deck.");
+            if (inputDlg.ShowDialog() == DialogResult.OK) {
+                deckName = inputDlg.ResultValue;
+            }
+            // Validate deck name
+            if (deckName == null || deckName.Length < 3) {
+                MessageBox.Show("Deck name must be at least 3 characters long.",
+                    "Invalid Deck Name",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get file name
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
                 cFile = new CardsFile(saveFileDialog1.FileName);
+                // Set deck name
+                cFile.DeckName = deckName;
+                cFile.Cards = this.cards;
             }
 
             try {
+                // Save deck info to file (XML formatted)
                 CardsFileWriter writer = new CardsFileWriter(cFile);
                 writer.WriteData();
             } catch (ArgumentException) {

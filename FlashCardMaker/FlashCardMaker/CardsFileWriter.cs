@@ -31,7 +31,7 @@ namespace FlashCardMaker {
             if (cFile.FileLocation == null || cFile.FileLocation.Length < 1)
                 isValid = false;
             // Check that CardsFile has project name
-            if (cFile.DeckName == null || cFile.DeckName.Length > 0)
+            if (cFile.DeckName == null || cFile.DeckName.Length < 3)
                 isValid = false;
 
             return isValid;
@@ -62,8 +62,6 @@ namespace FlashCardMaker {
                 writer.WriteEndElement();
                 writer.Flush();
             }
-
-            throw new NotImplementedException();
         }
     }
 }
